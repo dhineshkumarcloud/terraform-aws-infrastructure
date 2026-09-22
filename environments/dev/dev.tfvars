@@ -8,7 +8,7 @@ ec2_name = "terraform-dev-ec2-01"
 
 ami_id = "ami-05574c29f0cff2297"
 
-instance_type = "t3,micro"
+instance_type = "t3.micro"
 
 key_name = "terraform-dev-key"
 
