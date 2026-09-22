@@ -6,7 +6,7 @@ subnet_id = "subnet-0e7bd76acde90421e"
 
 ec2_name = "terraform-dev-ec2-01"
 
-ami_id = "ami-05574c29f0cff2297"
+ami_id = "ami-066c4849e6b3a1e3d"
 
 instance_type = "t3.micro"
 
