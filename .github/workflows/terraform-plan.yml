@@ -7,7 +7,6 @@ on:
     paths:
       - "environments/dev/**"
       - "modules/**"
-      - "versions.tf"
       - ".github/workflows/terraform-plan.yml"
 
 permissions:

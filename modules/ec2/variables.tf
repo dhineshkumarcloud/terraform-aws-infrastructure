@@ -46,7 +46,14 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "allowed_ssh_cidr" {
-  description = "CIDR block allowed to access SSH"
-  type        = string
+variable "ingress_rules" {
+  description = "List of inbound security group rules"
+
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
 }
