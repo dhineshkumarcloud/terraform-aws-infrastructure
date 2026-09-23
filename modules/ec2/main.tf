@@ -13,12 +13,16 @@ resource "aws_security_group" "this" {
   description = "Security group for ${var.name}"
   vpc_id      = var.vpc_id
 
-  ingress {
-    description = "SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.allowed_ssh_cidr]
+  dynamic "ingress" {
+    for_each = var.ingress_rules
+
+    content {
+      description = ingress.value.description
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
+    }
   }
 
   egress {
