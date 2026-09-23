@@ -16,6 +16,6 @@ module "ec2" {
   vpc_id           = data.aws_vpc.existing.id
   key_name         = var.key_name
   public_key       = var.public_key
-  allowed_ssh_cidr = var.allowed_ssh_cidr
+  ingress_rules    = var.ingress_rules
   root_volume_size = var.root_volume_size
 }

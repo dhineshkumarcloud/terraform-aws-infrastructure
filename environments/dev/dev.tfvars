@@ -14,6 +14,37 @@ key_name = "terraform-dev-key"
 
 public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNBCxht49XmpzTev7NFOZggdgiMuP9pRiuxOUa90WrE"
 
-allowed_ssh_cidr = "167.103.6.249/32"
+# module.ec2.aws_security_group.this
+ingress_rules = [
+  {
+    description = "SSH access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [
+      "167.103.6.249/32"
+    ]
+  },
+  {
+    description = "HTTPS access"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [
+      "10.10.10.10/32",
+      "10.10.10.11/32",
+      "10.10.10.12/32"
+    ]
+  },
+  {
+    description = "Application port"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = [
+      "10.20.20.10/32"
+    ]
+  }
+]
 
 root_volume_size = 50

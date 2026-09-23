@@ -39,9 +39,16 @@ variable "public_key" {
   sensitive   = true
 }
 
-variable "allowed_ssh_cidr" {
-  description = "CIDR allowed for SSH access"
-  type        = string
+variable "ingress_rules" {
+  description = "Inbound security group rules"
+
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
 }
 
 variable "root_volume_size" {
